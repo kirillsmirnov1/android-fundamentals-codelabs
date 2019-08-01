@@ -1,0 +1,25 @@
+package com.trulden.implicitintentsreceiver;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Intent intent = getIntent();
+        Uri uri = intent.getData();
+
+        if(uri != null){
+            String uri_string = getResources().getString(R.string.uri_label) + uri.toString();
+            TextView textView = findViewById(R.id.text_uri_message);
+            textView.setText(uri_string);
+        }
+    }
+}

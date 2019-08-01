@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ItemsActivity">
+
+    <TableLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TableRow>
+            <Button
+                android:id="@+id/cheese"
+                android:text="@string/cheese"
+                android:onClick="clickItem"
+            />
+            <Button
+                    android:id="@+id/milk"
+                    android:text="@string/milk"
+                    android:onClick="clickItem"
+            />
+        </TableRow>
+        <TableRow>
+            <Button
+                    android:id="@+id/oats"
+                    android:text="@string/oats"
+                    android:onClick="clickItem"
+            />
+            <Button
+                    android:id="@+id/oranges"
+                    android:text="@string/oranges"
+                    android:onClick="clickItem"
+            />
+        </TableRow>
+        <TableRow>
+            <Button
+                    android:id="@+id/apples"
+                    android:text="@string/apples"
+                    android:onClick="clickItem"
+            />
+            <Button
+                    android:id="@+id/bananas"
+                    android:text="@string/bananas"
+                    android:onClick="clickItem"
+            />
+        </TableRow>
+        <TableRow>
+            <Button
+                    android:id="@+id/yogurt"
+                    android:text="@string/yogurt"
+                    android:onClick="clickItem"
+            />
+            <Button
+                    android:id="@+id/tomatoes"
+                    android:text="@string/tomatoes"
+                    android:onClick="clickItem"
+            />
+        </TableRow>
+        <TableRow>
+            <Button
+                    android:id="@+id/passionfruit"
+                    android:text="@string/passionfruit"
+                    android:onClick="clickItem"
+            />
+            <Button
+                    android:id="@+id/strawberry"
+                    android:text="@string/strawberry"
+                    android:onClick="clickItem"
+            />
+        </TableRow>
+
+    </TableLayout>
+
+</ScrollView>
