@@ -1,0 +1,3 @@
+[submodule "android-fundamentals-starter-apps-v2"]
+	path = android-fundamentals-starter-apps-v2
+	url = https://github.com/google-developer-training/android-fundamentals-starter-apps-v2.git
