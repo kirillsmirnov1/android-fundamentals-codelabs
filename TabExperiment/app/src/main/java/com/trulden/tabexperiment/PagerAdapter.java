@@ -7,15 +7,14 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     private int mNumOfTabs;
-    private FragmentManager fm;
 
-    public PagerAdapter(@NonNull FragmentManager fm, int behavior) {
-        super(fm, behavior);
+    public PagerAdapter(@NonNull FragmentManager fm, int numOfTabs) {
+        super(fm, numOfTabs);
 
-        mNumOfTabs = fm.getFragments().size();
-        this.fm = fm;
+        mNumOfTabs = numOfTabs;
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         switch (position) {
@@ -28,6 +27,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return fm.getFragments().size();//mNumOfTabs;
+        return mNumOfTabs;
     }
 }
