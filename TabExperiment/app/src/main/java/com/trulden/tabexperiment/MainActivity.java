@@ -1,5 +1,6 @@
 package com.trulden.tabexperiment;
 
+import android.view.Menu;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
@@ -49,5 +50,11 @@ public class MainActivity extends AppCompatActivity {
                public void onTabReselected(TabLayout.Tab tab) {
                }
            });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 }
