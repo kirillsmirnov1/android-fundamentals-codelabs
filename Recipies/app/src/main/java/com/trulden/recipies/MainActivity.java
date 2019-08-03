@@ -2,6 +2,7 @@ package com.trulden.recipies;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recepie_recyclerview);
         mAdapter = new RecipeListAdapter(this, mTitlesList, mAnnotationsList);
         mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(mRecyclerView.getContext(),
+                                        layoutManager.getOrientation() ));
     }
 }
