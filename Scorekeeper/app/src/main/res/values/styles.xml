@@ -10,6 +10,7 @@
 
     <style name="ScoreButtons" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/button_background</item>
+        <item name="android:tint">@color/colorPrimary</item>
     </style>
 
     <style name="PlusButtons" parent="ScoreButtons">
@@ -36,11 +37,13 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Headline</item>
+<!--        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Headline</item>-->
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Display3</item>
     </style>
 
     <style name="TeamText" parent="Text">
         <item name="android:layout_alignParentTop">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Display1</item>
     </style>
 
     <style name="ScoreText" parent="Text">
