@@ -8,4 +8,43 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ScoreButtons" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_background</item>
+    </style>
+
+    <style name="PlusButtons" parent="ScoreButtons">
+        <item name="android:src">@drawable/ic_plus</item>
+        <item name="android:contentDescription">@string/plus_button</item>
+        <item name="android:layout_width">@dimen/button_size</item>
+        <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="MinusButtons" parent="ScoreButtons">
+        <item name="android:src">@drawable/ic_minus</item>
+        <item name="android:contentDescription">@string/minus_button</item>
+        <item name="android:layout_width">@dimen/button_size</item>
+        <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Headline</item>
+    </style>
+
+    <style name="TeamText" parent="Text">
+        <item name="android:layout_alignParentTop">true</item>
+    </style>
+
+    <style name="ScoreText" parent="Text">
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
 </resources>
