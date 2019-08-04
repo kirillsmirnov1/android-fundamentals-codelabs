@@ -18,7 +18,9 @@
         <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/recipe_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+        />
 
         <TextView
                 android:id="@+id/full_recipe_text"
