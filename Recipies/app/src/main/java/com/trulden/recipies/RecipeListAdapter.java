@@ -1,6 +1,7 @@
 package com.trulden.recipies;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,16 @@ import java.util.LinkedList;
 public class RecipeListAdapter
         extends RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder> {
 
+    public final static String EXTRA_RECIPE = "EXTRA_RECIPE";
+
     private final LinkedList<String> mTitlesList;
     private final LinkedList<String> mAnnotationsList;
+    private final Context mContext;
     private LayoutInflater mInflater;
 
     public RecipeListAdapter(Context context, LinkedList<String> titles,
                              LinkedList<String> annotations) {
+        mContext = context;
         mInflater = LayoutInflater.from(context);
         mTitlesList = titles;
         mAnnotationsList = annotations;
@@ -42,7 +47,8 @@ public class RecipeListAdapter
         return mTitlesList.size();
     }
 
-    public class RecipeViewHolder extends RecyclerView.ViewHolder {
+    public class RecipeViewHolder extends RecyclerView.ViewHolder
+    implements View.OnClickListener{
         public final TextView titleItemView;
         public final TextView annotationItemView;
         final RecipeListAdapter mAdapter;
@@ -52,6 +58,18 @@ public class RecipeListAdapter
             mAdapter = recipeListAdapter;
             titleItemView = view.findViewById(R.id.recipe_title);
             annotationItemView = view.findViewById(R.id.recepie_annotation);
+            view.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int mPosition = getLayoutPosition();
+
+            // TODO intent
+
+            Intent intent = new Intent(mContext, FullRecipeActivity.class);
+            intent.putExtra(EXTRA_RECIPE, mPosition);
+            mContext.startActivity(intent);
         }
     }
 }
