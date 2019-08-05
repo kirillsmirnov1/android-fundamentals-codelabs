@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Battery</string>
+    <string name="minus_sign">-</string>
+    <string name="plus_sign">+</string>
+    <string name="battery_description">Battery level</string>
+</resources>
