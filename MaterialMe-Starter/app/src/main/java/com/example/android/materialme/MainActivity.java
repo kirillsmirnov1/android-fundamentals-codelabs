@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         //Get the resources from the XML file
         String[] sportsList = getResources().getStringArray(R.array.sports_titles);
         String[] sportsInfo = getResources().getStringArray(R.array.sports_info);
+        String[] sportsText = getResources().getStringArray(R.array.sport_details);
         TypedArray sportsImages = getResources().obtainTypedArray(R.array.sports_images);
 
         //Clear the existing data (to avoid duplication)
@@ -99,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Create the ArrayList of Sports objects with the titles and information about each sport
         for(int i=0;i<sportsList.length;i++){
-            mSportsData.add(new Sport(sportsList[i],sportsInfo[i], sportsImages.getResourceId(i, 0)));
+            mSportsData.add(new Sport(sportsList[i],sportsInfo[i],
+                                        sportsImages.getResourceId(i, 0),
+                                        sportsText[i]));
         }
 
         sportsImages.recycle();

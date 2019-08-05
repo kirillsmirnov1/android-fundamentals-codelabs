@@ -123,6 +123,7 @@ class SportsAdapter extends RecyclerView.Adapter<SportsAdapter.ViewHolder>  {
             Intent intent = new Intent(mContext, DetailActivity.class);
             intent.putExtra("title", currentSport.getTitle());
             intent.putExtra("image_resource", currentSport.getImageResource());
+            intent.putExtra("text", currentSport.getText());
             mContext.startActivity(intent);
         }
     }

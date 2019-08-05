@@ -41,7 +41,7 @@
             android:padding="16dp"
             />
     <TextView
-            android:id="@+id/detail_subTitle"
+            android:id="@+id/detail_text"
             android:text="@string/lorem_ipsum"
             android:layout_below="@id/detail_newsTitle"
             android:layout_height="wrap_content"
