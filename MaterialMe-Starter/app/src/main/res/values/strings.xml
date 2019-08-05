@@ -18,6 +18,8 @@
     <string name="title_placeholder">Title</string>
     <string name="news_placeholder">News</string>
     <string name="sports_info_placeholder">Here is some news</string>
+    <string name="sport_s_image_content_description">Sport\'s image</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend, lectus nec efficitur laoreet, enim magna lobortis eros, malesuada vulputate dui sem quis odio. Aliquam dapibus metus ac laoreet blandit. Fusce iaculis finibus augue nec aliquam. Mauris porta mauris magna, ut dictum lectus tincidunt faucibus. Quisque magna sapien, ornare eget lacus quis, iaculis sodales lectus. Phasellus ac ligula pulvinar, condimentum elit et, imperdiet libero. Morbi luctus consectetur odio porttitor tincidunt. Praesent nisi justo, venenatis non malesuada non, aliquam sit amet enim. Integer quis tincidunt erat, sit amet iaculis orci. Donec eu orci eros. Nullam ac nisl interdum, pharetra urna vitae, elementum urna. Integer semper diam vulputate arcu aliquam, et pulvinar sem sollicitudin. Nam condimentum blandit nibh at consequat.</string>
 
     <string-array name="sports_titles">
         <item>Baseball</item>
