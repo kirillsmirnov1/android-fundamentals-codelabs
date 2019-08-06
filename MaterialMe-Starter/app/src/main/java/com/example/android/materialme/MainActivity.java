@@ -33,10 +33,17 @@ import java.util.Collections;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private static final String LIST_STATE_KEY = "LIST_STATE_KEY";
     //Member variables
     private RecyclerView mRecyclerView;
-    private ArrayList<Sport> mSportsData;
     private SportsAdapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
+    private static ArrayList<Sport> mSportsData;
+    static {
+        //Initialize the ArrayLIst that will contain the data
+        mSportsData = new ArrayList<>();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +54,18 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
 
         //Set the Layout Manager
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        //Initialize the ArrayLIst that will contain the data
-        mSportsData = new ArrayList<>();
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         //Initialize the adapter and set it ot the RecyclerView
         mAdapter = new SportsAdapter(this, mSportsData);
         mRecyclerView.setAdapter(mAdapter);
 
         //Get the data
-        initializeData();
-
+        if(mSportsData.size() == 0) {
+            initializeData();
+        }
+        
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(
                 new ItemTouchHelper.SimpleCallback(
                         ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT |
@@ -83,6 +90,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putParcelable(LIST_STATE_KEY, mLayoutManager.onSaveInstanceState());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        if(savedInstanceState!=null){
+            mLayoutManager.onRestoreInstanceState(savedInstanceState.getParcelable(LIST_STATE_KEY));
+        }
     }
 
     /**
