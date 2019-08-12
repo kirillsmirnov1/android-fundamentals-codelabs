@@ -68,12 +68,18 @@ public class MainActivity extends AppCompatActivity {
         if(mSportsData.size() == 0) {
             initializeData();
         }
+
+        int swipeDirs =
+                (gridColumnCount > 1)
+                ? 0
+                : ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+
         
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(
                 new ItemTouchHelper.SimpleCallback(
                         ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT |
                                 ItemTouchHelper.DOWN | ItemTouchHelper.UP,
-                        ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                        swipeDirs) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView,
                                   @NonNull RecyclerView.ViewHolder viewHolder,
