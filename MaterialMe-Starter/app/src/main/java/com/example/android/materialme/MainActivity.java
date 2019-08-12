@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -53,8 +54,10 @@ public class MainActivity extends AppCompatActivity {
         //Initialize the RecyclerView
         mRecyclerView = (RecyclerView)findViewById(R.id.recyclerView);
 
+        int gridColumnCount = getResources().getInteger(R.integer.grid_column_count);
+
         //Set the Layout Manager
-        mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager = new GridLayoutManager(this, gridColumnCount);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         //Initialize the adapter and set it ot the RecyclerView
