@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private CustomReceiver mReceiver = new CustomReceiver();
     private static final String ACTION_CUSTOM_BROADCAST =
             BuildConfig.APPLICATION_ID + ".ACTION_CUSTOM_BROADCAST";
+    public static final String EXTRA_NUMBER = "EXTRA_NUMBER";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendCustomBroadcast(View view) {
         Intent customBroadcastIntent = new Intent(ACTION_CUSTOM_BROADCAST);
+        customBroadcastIntent.putExtra(EXTRA_NUMBER, 0);
         LocalBroadcastManager.getInstance(this).sendBroadcast(customBroadcastIntent);
     }
 }
