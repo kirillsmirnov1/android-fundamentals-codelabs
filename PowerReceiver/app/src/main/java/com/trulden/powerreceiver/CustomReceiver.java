@@ -26,6 +26,9 @@ public class CustomReceiver extends BroadcastReceiver {
                 case ACTION_CUSTOM_BROADCAST:
                     toastMessage = "Custom Broadcast Received";
                     break;
+                case Intent.ACTION_HEADSET_PLUG:
+                    toastMessage = "Headset!";
+                    break;
             }
 
             Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show();
