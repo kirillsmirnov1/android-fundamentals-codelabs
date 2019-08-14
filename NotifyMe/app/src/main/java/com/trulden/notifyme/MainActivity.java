@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private NotificationCompat.Builder getNotificationBuilder(){
+
         Intent notificationIntent = new Intent(this, MainActivity.class);
 
         PendingIntent notificationPendingIntent =
@@ -68,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
                         .setContentText("This is your notification text.")
                         .setSmallIcon(R.drawable.ic_android)
                         .setContentIntent(notificationPendingIntent) // What to do
-                        .setAutoCancel(true); // Close notification after user taps it
+                        .setAutoCancel(true) // Close notification after user taps it
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setDefaults(NotificationCompat.DEFAULT_ALL);
 
         return notifyBuilder;
 
