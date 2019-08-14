@@ -25,7 +25,9 @@
         app:layout_constraintBottom_toTopOf="@+id/cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notify" />
+        app:layout_constraintTop_toBottomOf="@+id/notify"
+        android:enabled="false"
+        />
 
     <Button
         android:id="@+id/cancel"
@@ -35,6 +37,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update" />
+        app:layout_constraintTop_toBottomOf="@+id/update"
+        android:enabled="false"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
