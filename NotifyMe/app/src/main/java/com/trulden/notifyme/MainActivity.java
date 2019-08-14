@@ -2,6 +2,8 @@ package com.trulden.notifyme;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -54,11 +56,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private NotificationCompat.Builder getNotificationBuilder(){
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+
+        PendingIntent notificationPendingIntent =
+                PendingIntent.getActivity(this, NOTIFICATION_ID, notificationIntent,
+                                            PendingIntent.FLAG_UPDATE_CURRENT);
+
         NotificationCompat.Builder notifyBuilder =
                 new NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID)
                         .setContentTitle("You've been notified!")
                         .setContentText("This is your notification text.")
-                        .setSmallIcon(R.drawable.ic_android);
+                        .setSmallIcon(R.drawable.ic_android)
+                        .setContentIntent(notificationPendingIntent) // What to do
+                        .setAutoCancel(true); // Close notification after user taps it
+
         return notifyBuilder;
 
 
