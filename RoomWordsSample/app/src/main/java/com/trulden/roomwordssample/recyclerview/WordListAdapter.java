@@ -35,7 +35,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         }
     }
 
-    void setWords(List<Word> words){
+    public void setWords(List<Word> words){
         mWords = words;
         notifyDataSetChanged();
     }
