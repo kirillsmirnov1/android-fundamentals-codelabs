@@ -1,10 +1,7 @@
 package com.trulden.roomwordssample.database;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Dao;
-import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
-import androidx.room.Query;
+import androidx.room.*;
 
 import java.util.List;
 
@@ -22,4 +19,7 @@ public interface WordDao {
 
     @Query("SELECT * from word_table LIMIT 1")
     Word[] getAnyWord();
+
+    @Delete
+    void deleteWord(Word word);
 }
