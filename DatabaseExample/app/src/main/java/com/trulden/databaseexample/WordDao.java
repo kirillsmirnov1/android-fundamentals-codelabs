@@ -1,5 +1,6 @@
 package com.trulden.databaseexample;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
@@ -25,7 +26,7 @@ public interface WordDao {
 
     // Simple query without parameters that returns values.
     @Query("SELECT * from word_table ORDER BY word ASC")
-    List<Word> getAllWords();
+    LiveData<List<Word>> getAllWords();
 
     // Query with parameter that returns a specific word or words.
     @Query("SELECT * FROM word_table WHERE word LIKE :word ")
