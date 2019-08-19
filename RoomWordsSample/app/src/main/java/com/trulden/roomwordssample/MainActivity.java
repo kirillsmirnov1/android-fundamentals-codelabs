@@ -1,6 +1,9 @@
 package com.trulden.roomwordssample;
 
 import android.os.Bundle;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -10,9 +13,15 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.trulden.roomwordssample.database.Word;
+import com.trulden.roomwordssample.database.WordViewModel;
 import com.trulden.roomwordssample.recyclerview.WordListAdapter;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+    private WordViewModel mWordViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +43,17 @@ public class MainActivity extends AppCompatActivity {
         final WordListAdapter adapter = new WordListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Connect UI with ViewModel
+        mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
+
+        // Observe word changes
+        mWordViewModel.getAllWords().observe(this, new Observer<List<Word>>(){
+            @Override
+            public void onChanged(@Nullable final List<Word> words){
+                adapter.setWords(words);
+            }
+        });
     }
 
     @Override
