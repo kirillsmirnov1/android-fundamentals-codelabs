@@ -1,4 +1,4 @@
-package com.trulden.roomwordssample;
+package com.trulden.roomwordssample.database;
 
 import android.app.Application;
 import android.os.AsyncTask;

@@ -1,4 +1,4 @@
-package com.trulden.roomwordssample;
+package com.trulden.roomwordssample.database;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

@@ -1,4 +1,4 @@
-package com.trulden.roomwordssample;
+package com.trulden.roomwordssample.database;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
