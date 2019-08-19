@@ -22,4 +22,7 @@ public interface WordDao {
 
     @Delete
     void deleteWord(Word word);
+
+    @Update
+    void update(Word... word);
 }
