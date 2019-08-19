@@ -18,7 +18,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db){
             super.onOpen(db);
-            new PopulateDbAsync(INSTANCE).execute();
+            new PopulateDBAsync(INSTANCE).execute();
         }
     };
 
@@ -57,12 +57,12 @@ public abstract class WordRoomDatabase extends RoomDatabase {
 
     public abstract WordDao wordDao();
 
-    private static class PopulateDbAsync extends AsyncTask<Void, Void, Void>{
+    private static class PopulateDBAsync extends AsyncTask<Void, Void, Void>{
 
         private final WordDao mDao;
         String[] words = {"Dolphin", "Crocodile", "Cobra"};
 
-        PopulateDbAsync(WordRoomDatabase db){
+        PopulateDBAsync(WordRoomDatabase db){
             mDao = db.wordDao();
         }
 
