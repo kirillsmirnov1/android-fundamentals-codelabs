@@ -29,4 +29,12 @@ public class Word {
     public String getWord(){
         return mWord;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

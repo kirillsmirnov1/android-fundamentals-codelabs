@@ -26,7 +26,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
+    public static final int  UPDATE_WORD_ACTIVITY_REQUEST_CODE = 2;
     private WordViewModel mWordViewModel;
+    private WordListAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final WordListAdapter adapter = new WordListAdapter(this);
-        recyclerView.setAdapter(adapter);
+        mAdapter = new WordListAdapter(this);
+        recyclerView.setAdapter(mAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Connect UI with ViewModel
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         mWordViewModel.getAllWords().observe(this, new Observer<List<Word>>(){
             @Override
             public void onChanged(@Nullable final List<Word> words){
-                adapter.setWords(words);
+                mAdapter.setWords(words);
             }
         });
 
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                         int position = viewHolder.getAdapterPosition();
-                        Word myWord = adapter.getWordAtPosition(position);
+                        Word myWord = mAdapter.getWordAtPosition(position);
                         Toast.makeText(MainActivity.this, "Deleting " + myWord.getWord(), Toast.LENGTH_LONG).show();
 
                         mWordViewModel.deleteWord(myWord);
@@ -117,7 +119,14 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY));
             mWordViewModel.insert(word);
-        } else {
+        } else if(requestCode == UPDATE_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
+            String wordText = data.getStringExtra(NewWordActivity.EXTRA_REPLY);
+            int wordID = mAdapter.getWordAtPosition(data.getIntExtra(WordListAdapter.UPDATE_WORD_POSITION_EXTRA, -1)).getId();
+
+            Word word = new Word(wordID, wordText);
+            mWordViewModel.updateWord(word);
+        }
+        else {
             Toast.makeText(
                     getApplicationContext(),
                     R.string.empty_not_saved,
