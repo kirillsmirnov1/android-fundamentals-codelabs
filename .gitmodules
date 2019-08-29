@@ -1,3 +1,6 @@
 [submodule "android-fundamentals-starter-apps-v2"]
 	path = android-fundamentals-starter-apps-v2
 	url = https://github.com/google-developer-training/android-fundamentals-starter-apps-v2.git
+[submodule "android-storage-permissions"]
+	path = android-storage-permissions
+	url = ../../googlecodelabs/android-storage-permissions.git
